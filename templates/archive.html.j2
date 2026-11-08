@@ -1,0 +1,20 @@
+{% extends "base.html.j2" %}
+{% block title %}지난 보고 · 전국 재난·통신·교통 일일 현황{% endblock %}
+{% block body %}
+<header>
+  <h1>지난 보고</h1>
+  <p class="meta">전국 재난·통신·교통 일일 현황</p>
+</header>
+<section>
+  {% if reports %}
+  <ul class="events">
+  {% for r in reports %}
+    <li><a href="{{ root }}{{ r.report_date }}/">{{ r.report_date | kdate }}</a>
+      <span class="ev-meta">· {{ r.events | length }}건{% if r.events | selectattr("severity", "equalto", "critical") | list %} · 긴급 {{ r.events | selectattr("severity", "equalto", "critical") | list | length }}건{% endif %}</span></li>
+  {% endfor %}
+  </ul>
+  {% else %}
+  <p class="empty">아직 발행된 보고가 없습니다.</p>
+  {% endif %}
+</section>
+{% endblock %}

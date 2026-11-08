@@ -1,0 +1,141 @@
+{
+  "report_date": "2026-11-05",
+  "generated_at": "2026-11-05T00:37:50+09:00",
+  "window": {
+    "start": "2026-11-04T07:00:00+09:00",
+    "end": "2026-11-05T07:00:00+09:00"
+  },
+  "sample": false,
+  "sources_status": [
+    {
+      "name": "Google 뉴스 RSS (재난·재해)",
+      "ok": true,
+      "message": "검색어 4/4개 성공, 기사 53건"
+    },
+    {
+      "name": "Google 뉴스 RSS (유무선 통신망 두절)",
+      "ok": true,
+      "message": "검색어 2/2개 성공, 기사 5건"
+    },
+    {
+      "name": "Google 뉴스 RSS (교통 두절)",
+      "ok": true,
+      "message": "검색어 3/3개 성공, 기사 22건"
+    },
+    {
+      "name": "Gemini 분류·요약",
+      "ok": true,
+      "message": "기사 80건 → 사건 4건"
+    }
+  ],
+  "dropped": {
+    "no_source": 0,
+    "out_of_window": 0,
+    "invalid": 0,
+    "duplicate": 0
+  },
+  "events": [
+    {
+      "category": "disaster",
+      "severity": "critical",
+      "status": "resolved",
+      "title": "광주 고등학교 과학실 화학실험 중 폭발 사고",
+      "summary": "광주의 한 고등학교 과학실에서 화학실험 중 폭발 사고가 발생해 학생 7명이 다쳤습니다.",
+      "region": [
+        "광주"
+      ],
+      "started_at": "2026-11-04T18:12:20+09:00",
+      "ended_at": null,
+      "sources": [
+        {
+          "name": "진일보 | 전남일보",
+          "type": "news",
+          "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE5pcmQ4Q1VBT0FEUGQ4a0c0MS0wME4wSE5uNGV3bDdmbjRzeUhFc1FWX3ZQSnpQM3kyQXIxaTVyQXBDR0NFUmhNbzA5U0hhM1lMTElOeWNfekhsQTBiMGpiYTVJSXR5ZEt4OVljV2dTaw?oc=5",
+          "published_at": "2026-11-04T18:12:20+09:00"
+        }
+      ],
+      "id": "2026-11-05-disaster-0001"
+    },
+    {
+      "category": "disaster",
+      "severity": "warning",
+      "status": "ongoing",
+      "title": "전남 서해 먼바다 풍랑주의보 발표",
+      "summary": "전남 서해 먼바다에 풍랑주의보가 발표되어 항해 및 조업 선박의 주의가 요구됩니다.",
+      "region": [
+        "전남"
+      ],
+      "started_at": "2026-11-04T23:04:52+09:00",
+      "ended_at": null,
+      "sources": [
+        {
+          "name": "연합뉴스",
+          "type": "news",
+          "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1OWkNrUkwtYjFaUlJ4Vktaa1VEYXZyMGxvakVFMUVDWXhCVDVUUnpKbUdtRmhVRjNsUlFDaDhITXFZbncxMFZJM08wbVQ3dzAxNS1PdDBCcE03UUnSAWBBVV95cUxQQzNZLUpaMlQwNUpQa0pHOTFuSDdFdHpqSlNzMU5oUUdHZkY4cXJydjR4NE1zc0JZODBNTDd0ek1VcEJwbzB0XzhiX25RTVdrM2pDUXN3MnlmMWd6LUNZU2g?oc=5",
+          "published_at": "2026-11-04T23:04:52+09:00"
+        }
+      ],
+      "id": "2026-11-05-disaster-0002"
+    },
+    {
+      "category": "disaster",
+      "severity": "warning",
+      "status": "resolved",
+      "title": "인천 부평구 자원순환시설 화재",
+      "summary": "인천 부평구의 한 자원순환시설에서 화재가 발생했으나 인명 피해 없이 진화되었습니다.",
+      "region": [
+        "인천"
+      ],
+      "started_at": "2026-11-04T08:39:57+09:00",
+      "ended_at": null,
+      "sources": [
+        {
+          "name": "일간경기",
+          "type": "news",
+          "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE5uY29kQ25VM1FSTXJRRmJpZ2xvZm1GcGNHZkZ2ZW9LQXo4SzRqN1dMN0c4WFFKeWVQZ0owdXYyeDFwWVR2YXdPTE5fazhuZzN6eUctN0FIdGI4c2IyUkNmdVJHZWRwV3Zq?oc=5",
+          "published_at": "2026-11-04T08:39:57+09:00"
+        }
+      ],
+      "id": "2026-11-05-disaster-0003"
+    },
+    {
+      "category": "disaster",
+      "severity": "warning",
+      "status": "resolved",
+      "title": "충남 천안 한국산업기술시험원 배터리 폭발 화재",
+      "summary": "충남 천안 한국산업기술시험원 이차전지 시험센터에서 배터리가 폭발하며 화재가 발생했으나, 직원들이 대피해 인명 피해 없이 26분 만에 완진되었습니다.",
+      "region": [
+        "충남"
+      ],
+      "started_at": "2026-11-04T19:15:10+09:00",
+      "ended_at": null,
+      "sources": [
+        {
+          "name": "현대경제",
+          "type": "news",
+          "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTFBOUk1tcl82QU9GRXBxcEFuNWhVOUlWZ2o1Wld0TFVLTXBSY3d6UnBxMXFCLU1pOWRpSGRsazlrOV91d3R0ZDJkR2h6YThQTnpwN2p2Z2VsSHlHWnNremFmUk9zT0hTRTFveGhR?oc=5",
+          "published_at": "2026-11-04T19:15:10+09:00"
+        },
+        {
+          "name": "뉴시스",
+          "type": "news",
+          "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE1RNUpjeEFSSmJyV2MtRGpmOG41OGUyNVZTWndSUlNYUEdjOGhNcjViT2pDcUdmeXJQd3ZWdG1sSlJ4WVI0YmxBVUVWTDEybkVmWXNhTlR2cW5OYjZmZEpYVlhrQTdFbF9nYUxNelJvb0hzbVhPR0FWedIBeEFVX3lxTE1RNUpjeEFSSmJyV2MtRGpmOG41OGUyNVZTWndSUlNYUEdjOGhNcjViT2pDcUdmeXJQd3ZWdG1sSlJ4WVI0YmxBVUVWTDEybkVmWXNhTlR2cW5OYjZmZEpYVlhrQTdFbF9nYUxNelJvb0hzbVhPR0FWeQ?oc=5",
+          "published_at": "2026-11-04T19:17:53+09:00"
+        },
+        {
+          "name": "대전일보",
+          "type": "news",
+          "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE5kUFBXUXZDanEyeEM3Rld5Nm9ZTjA1UWUyZktEZFg1WGROTm4xbU5aYzRHVzNkYUJ2NlY4TzNOdkdhX19TRXhmVm5tV2VEdnNZYW1pbGQ5cjNIazNQOVJYLTdYTXVRSE92dHFzYlprOTNqZmPSAXNBVV95cUxOZFBQV1F2Q2pxMnhDN0ZXeTZvWU4wNVFlMmZLRGRYNVhkTk5uMW1OWmM0R1czZGFCdjZWOE8zTnZHYV9fU0V4ZlZubVdlRHZzWWFtaWxkOXIzSGszUDlSWC03WE11UUhPdnRxc2JaazkzamZj?oc=5",
+          "published_at": "2026-11-04T20:12:34+09:00"
+        },
+        {
+          "name": "경향신문",
+          "type": "news",
+          "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5qaDlPbTgwYlZ6aGZaNHlzZjlIb05JaGw2aVR6Mk16MlA3STNLeklOY0tWeHRiME9qRU5WcDdGRVJJNDVSQXhCVEtPcGdEdU9QZlhFUVFfdVF5MDZNUFdB0gFfQVVfeXFMTmpoOU9tODBiVnpoZlo0eXNmOUhvTklobDZpVHoyTXoyUDdJM0t6SU5jS1Z4dGIwT2pFTlZwN0ZFUkk0NVJBeEJUS09wZ0R1T1BmWEVRUV91UXkwNk1QV0E?oc=5",
+          "published_at": "2026-11-04T20:34:00+09:00"
+        }
+      ],
+      "id": "2026-11-05-disaster-0004"
+    }
+  ]
+}

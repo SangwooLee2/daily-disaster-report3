@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block title %}전국 재난·통신·교통 일일 현황{% endblock %}</title>
+<style>
+  :root {
+    --bg: #f6f7f9; --card: #fff; --text: #1a1d21; --muted: #5b6370; --line: #e2e5ea;
+    --critical: #c62828; --critical-bg: #fdecec;
+    --warning: #b45309; --warning-bg: #fff4e0;
+    --info: #1d5fbf; --info-bg: #e8f0fc;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", sans-serif; }
+  main { max-width: 860px; margin: 0 auto; padding: 20px 16px 48px; }
+  header h1 { font-size: 1.5rem; margin: 0 0 4px; }
+  .meta { color: var(--muted); font-size: .95rem; margin: 0; }
+  section { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; margin-top: 16px; }
+  h2 { font-size: 1.15rem; margin: 0 0 12px; }
+  .notice { background: #fffbe6; border: 1px solid #f0e2a8; border-radius: 8px; padding: 10px 14px; margin-top: 16px; font-size: .92rem; }
+  table.summary { width: 100%; border-collapse: collapse; }
+  table.summary th, table.summary td { padding: 8px 6px; border-bottom: 1px solid var(--line); text-align: center; }
+  table.summary th:first-child, table.summary td:first-child { text-align: left; }
+  table.summary tr:last-child td { border-bottom: 0; }
+  .badge { display: inline-block; padding: 1px 8px; border-radius: 999px; font-size: .8rem; font-weight: 700; white-space: nowrap; }
+  .badge.critical { color: var(--critical); background: var(--critical-bg); }
+  .badge.warning { color: var(--warning); background: var(--warning-bg); }
+  .badge.info { color: var(--info); background: var(--info-bg); }
+  .badge.status { color: var(--muted); background: #eef0f3; font-weight: 500; }
+  .zero { color: #b3b9c2; }
+  ul.events { list-style: none; margin: 0; padding: 0; }
+  ul.events li { padding: 12px 0; border-top: 1px solid var(--line); }
+  ul.events li:first-child { border-top: 0; padding-top: 0; }
+  .ev-head { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+  .ev-title { font-weight: 700; }
+  .ev-summary { margin: 4px 0; }
+  .ev-meta { color: var(--muted); font-size: .88rem; }
+  .ev-meta a { color: var(--muted); }
+  .empty { color: var(--muted); margin: 0; }
+  section.urgent { border-color: #f3c3c3; }
+  footer { margin-top: 24px; color: var(--muted); font-size: .88rem; }
+  footer a { color: inherit; }
+  .ok { color: #2e7d32; } .fail { color: var(--critical); }
+  @media (max-width: 480px) { body { font-size: 15px; } header h1 { font-size: 1.3rem; } }
+</style>
+</head>
+<body>
+<main>
+{% block body %}{% endblock %}
+<footer>
+  <p><a href="{{ root }}archive/">지난 보고 보기</a></p>
+  <p>이 페이지는 공공기관 발표와 언론 보도를 자동으로 모은 참고 자료입니다.
+  긴급 상황에서는 반드시 행정안전부·기상청 등 공식 채널과 119·112를 이용하세요.</p>
+</footer>
+</main>
+</body>
+</html>

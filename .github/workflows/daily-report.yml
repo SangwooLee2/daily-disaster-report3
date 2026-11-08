@@ -1,0 +1,59 @@
+name: daily-report
+
+on:
+  schedule:
+    - cron: "0 22 * * *"  # 매일 07:00 KST (22:00 UTC)
+  workflow_dispatch:
+    inputs:
+      date:
+        description: "보고 날짜 (YYYY-MM-DD, 비우면 오늘)"
+        required: false
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: daily-report
+  cancel-in-progress: false
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: 수집 (Google 뉴스 RSS + Gemini 1회 호출)
+        timeout-minutes: 10
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
+        run: python main.py collect ${{ inputs.date && format('--date {0}', inputs.date) || '' }}
+
+      - name: 수집 결과 저장 (data/)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/
+          git diff --cached --quiet || git commit -m "report: $(ls -t data/*.json | head -1 | xargs basename)"
+          git push
+
+      - run: python main.py build
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+      - id: deploy
+        uses: actions/deploy-pages@v4

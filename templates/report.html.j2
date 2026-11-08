@@ -1,0 +1,76 @@
+{% extends "base.html.j2" %}
+{% block title %}전국 재난·통신·교통 일일 현황 {{ report.report_date }}{% endblock %}
+
+{% macro event_item(e) %}
+<li>
+  <div class="ev-head">
+    <span class="badge {{ e.severity }}">{{ SEVERITIES[e.severity] }}</span>
+    <span class="badge status">{{ STATUSES[e.status] }}</span>
+    <span class="ev-title">{{ e.title }}</span>
+  </div>
+  {% if e.summary %}<p class="ev-summary">{{ e.summary }}</p>{% endif %}
+  <div class="ev-meta">
+    {{ e.region | join(", ") if e.region else "지역 미상" }} · 시작 {{ e.started_at | time }}{% if e.ended_at %} · 종료 {{ e.ended_at | time }}{% endif %}
+    · 출처:
+    {% for s in e.sources %}<a href="{{ s.url }}" target="_blank" rel="noopener">{{ s.name }}</a>{{ ", " if not loop.last }}{% endfor %}
+  </div>
+</li>
+{% endmacro %}
+
+{% block body %}
+<header>
+  <h1>전국 재난·통신·교통 일일 현황</h1>
+  {% if report.generated_at < report.window.end %}
+  <p class="meta">{{ report.report_date | kdate }} <strong>중간 집계 ({{ report.generated_at | time }} 기준)</strong> · 집계 {{ report.window.start | time }} ~ {{ report.generated_at | time }}</p>
+  {% else %}
+  <p class="meta">{{ report.report_date | kdate }} 07:00 기준 · 집계 {{ report.window.start | time }} ~ {{ report.window.end | time }} (24시간)</p>
+  {% endif %}
+</header>
+
+{% if report.sample %}<div class="notice"><strong>⚠️ 샘플 데이터입니다.</strong> 화면 확인용 가상 사례이며 실제 상황이 아닙니다.</div>{% endif %}
+<div class="notice">모든 항목은 <strong>언론 보도·웹 검색 기반</strong>으로 자동 수집했습니다. 각 항목의 출처 링크에서 원문을 확인하세요.</div>
+
+<section>
+  <h2>한눈에 보기</h2>
+  <table class="summary">
+    <thead><tr><th>분야</th>{% for s, label in SEVERITIES.items() %}<th><span class="badge {{ s }}">{{ label }}</span></th>{% endfor %}</tr></thead>
+    <tbody>
+    {% for c, label in CATEGORIES.items() %}
+      <tr><td>{{ label }}</td>{% for s in SEVERITIES %}{% set n = counts[c][s] %}<td class="{{ 'zero' if n == 0 }}">{{ n }}</td>{% endfor %}</tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</section>
+
+{% set urgent = report.events | selectattr("severity", "equalto", "critical") | selectattr("status", "equalto", "ongoing") | list %}
+<section class="urgent">
+  <h2><span class="badge critical">긴급</span> 지금 확인해야 할 사항</h2>
+  {% if urgent %}
+  <ul class="events">{% for e in urgent %}{{ event_item(e) }}{% endfor %}</ul>
+  {% else %}
+  <p class="empty">진행 중인 긴급 사항 없음</p>
+  {% endif %}
+</section>
+
+{% for c, label in CATEGORIES.items() %}
+{% set items = report.events | selectattr("category", "equalto", c) | list %}
+<section>
+  <h2>{{ label }}</h2>
+  {% if items %}
+  <ul class="events">{% for e in items %}{{ event_item(e) }}{% endfor %}</ul>
+  {% else %}
+  <p class="empty">보고 기간 중 접수된 사항 없음</p>
+  {% endif %}
+</section>
+{% endfor %}
+
+<section>
+  <h2>데이터 수집 상태</h2>
+  <ul class="events">
+  {% for s in report.sources_status %}
+    <li><span class="{{ 'ok' if s.ok else 'fail' }}">{{ "✅ 정상" if s.ok else "⚠️ 수집 실패" }}</span> {{ s.name }}{% if not s.ok %} — 이번 보고에는 이 소스의 데이터가 빠져 있습니다{% endif %}</li>
+  {% endfor %}
+  </ul>
+  <p class="ev-meta">생성 시각 {{ report.generated_at | time }}</p>
+</section>
+{% endblock %}

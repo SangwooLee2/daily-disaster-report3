@@ -1,0 +1,325 @@
+{
+  "report_date": "2026-11-08",
+  "generated_at": "2026-11-08T21:04:50+09:00",
+  "window": {
+    "start": "2026-11-07T07:00:00+09:00",
+    "end": "2026-11-08T07:00:00+09:00"
+  },
+  "sample": false,
+  "sources_status": [
+    {
+      "name": "Google 뉴스 RSS (재난·재해)",
+      "ok": true,
+      "message": "검색어 4/4개 성공, 기사 42건"
+    },
+    {
+      "name": "Google 뉴스 RSS (유무선 통신망 두절)",
+      "ok": true,
+      "message": "검색어 2/2개 성공, 기사 2건"
+    },
+    {
+      "name": "Google 뉴스 RSS (교통 두절)",
+      "ok": true,
+      "message": "검색어 3/3개 성공, 기사 17건"
+    },
+    {
+      "name": "Gemini 분류·요약",
+      "ok": true,
+      "message": "기사 61건 → 사건 8건"
+    }
+  ],
+  "dropped": {
+    "no_source": 0,
+    "out_of_window": 0,
+    "invalid": 0,
+    "duplicate": 0
+  },
+  "events": [
+    {
+      "category": "disaster",
+      "severity": "critical",
+      "status": "resolved",
+      "title": "춘천 펜션 심야 화재로 2명 부상",
+      "summary": "강원 춘천시의 한 펜션에서 불이 나 건물과 차량이 불타고 투숙객 2명이 부상을 입었습니다.",
+      "region": [
+        "강원"
+      ],
+      "started_at": "2026-11-07T12:16:44+09:00",
+      "ended_at": null,
+      "sources": [
+        {
+          "name": "매일안전신문",
+          "type": "news",
+          "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE1qeVVxVzYtNGRjdk91bHlZVExIcGFQUWNyRWRZVTlpNFFqOTVkNVlJQnVIQ1VVcGxXZk03RUxkMUE3RVVyeHk3MEh6Zzc0N1ZyWEQ2dGdPY23SAWhBVV95cUxOemhWbjZSZ1NFQjBCUzlscGY5Zi1sbmNpUllTTHhLcjUtR3pUa21rejJXOHNwYWRkM0RLVmZ3bUtRRXFkbjJJZEFNdDZrYk5sVGo0SEJLaDhaYVlYTzlYWjJnaWFQaC0ydQ?oc=5",
+          "published_at": "2026-11-07T12:16:44+09:00"
+        }
+      ],
+      "id": "2026-11-08-disaster-0001"
+    },
+    {
+      "category": "disaster",
+      "severity": "critical",
+      "status": "resolved",
+      "title": "경주 도심 변압기 폭발 화재로 3명 부상",
+      "summary": "경북 경주 도심에서 변압기 교체 작업 중 폭발과 함께 화재가 발생해 작업자 3명이 중경상을 입었습니다.",
+      "region": [
+        "경북"
+      ],
+      "started_at": "2026-11-07T20:26:52+09:00",
+      "ended_at": null,
+      "sources": [
+        {
+          "name": "노컷뉴스",
+          "type": "news",
+          "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE1rcDhpOG5WdHVNYkJvandEdWduTURQQXFmaGM4N0xTQVBKdkxRVWRHWHh4R0lIWWVIdE5Bak9EcjVlUEp6MXFFMFlNb0dfdy1OdGc?oc=5",
+          "published_at": "2026-11-07T20:26:52+09:00"
+        }
+      ],
+      "id": "2026-11-08-disaster-0002"
+    },
+    {
+      "category": "traffic",
+      "severity": "warning",
+      "status": "ongoing",
+      "title": "서울 도심 집회 및 마라톤으로 주요 도로 통제",
+      "summary": "주말 서울 광화문, 여의도 등 도심 일대에서 대규모 집회와 마라톤 행사가 열려 주요 도로의 교통이 통제됩니다.",
+      "region": [
+        "서울"
+      ],
+      "started_at": "2026-11-07T07:02:00+09:00",
+      "ended_at": null,
+      "sources": [
+        {
+          "name": "4차산업행정뉴스",
+          "type": "news",
+          "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE83Skxuakp0d00wTkpoNERscXoxYnItTlBEV1VwTzdCNHBWeUlla1FUUWpDdmJvUzhxcEZGSWU3cEx3WDlNVnBWd2ZRYmZidHVqMWc?oc=5",
+          "published_at": "2026-11-07T07:02:00+09:00"
+        },
+        {
+          "name": "경향신문",
+          "type": "news",
+          "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5qLV9oM29Ka0lBUDdCVDZtV1RvaHpTNGs2OWs1QkJrNnk2aGNsRlJPSnN4MWxVNkEydEFzYjRCUmhzZFp4NlhRUzFkSGhnT05yM3BBdFExVWkzOXgyTVEw0gFfQVVfeXFMTmotX2gzb0prSUFQN0JUNm1XVG9oelM0azY5azVCQms2eTZoY2xGUk9Kc3gxbFU2QTJ0QXNiNEJSaHNkWng2WFFTMWRIaGdPTnIzcEF0UTFVaTM5eDJNUTA?oc=5",
+          "published_at": "2026-11-07T07:33:00+09:00"
+        },
+        {
+          "name": "조세일보",
+          "type": "news",
+          "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE4tampQOHZUb19Nb0ZXUHFVVGdtaWNvN0Z3YzB5NnJRblQ2enNOV3o0R0J1WHBYVzFkNTJJTmloSzNOcGwxdkdhY3BPWXdxY0NmZEhzNklMNklBUnVWY3JB?oc=5",
+          "published_at": "2026-11-07T07:43:44+09:00"
+        },
+        {
+          "name": "한국경제TV",
+          "type": "news",
+          "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE1oWFExd2JGWHk4akEwMXFaaG5SeER1WXFmclNiRWdVZXlUbWxiMXg4SXVYbVFPTnNjejVYUkl4akpJLXhGOE9iMFR1cVlXN09EVDlsRHhISEJVamRaYVhSVmwzOEwtc3otamR2dVhRSXphSW8?oc=5",
+          "published_at": "2026-11-07T09:03:00+09:00"
+        },
+        {
+          "name": "한국생활체육뉴스",
+          "type": "news",
+          "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE9sSGc2ZXgxYjZLUDdZRVRkRk5QU01ZakRvVmJWYXA1VV9MblAtRG04WDlqXzhUYUc1dWF0MGpZLWZqUG9QZVdjTnhxUjRLZFU0NlNLTDhBTWF5UE0tTUxWa1dZMFhvRUVLWmc?oc=5",
+          "published_at": "2026-11-07T09:36:53+09:00"
+        },
+        {
+          "name": "뉴스핌",
+          "type": "news",
+          "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE5maUdGMVRCWldUTG1rRXJ5Ny1GcHdIS2VfbnFsbUhxVjloZUxnRXRJWmk2TlZRaS1UNzkyX1lDVjZvRUhIUE9KWWRhMGRKSFIxYmVvWDZ5bVJfVmVF?oc=5",
+          "published_at": "2026-11-07T09:47:00+09:00"
+        },
+        {
+          "name": "한국일보",
+          "type": "news",
+          "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE9qdUtZVXFzWnh3ZEZRMUY5SExqUkkzSXJ0TXJjQk9vdElnY1JrblhUazV4Z2lMMDliUXg4bWN1dy1ibnAwdGhNTkxXUUh0WUtlbUp1T0JKYktwVUVwRnViU1hVNzc2RER2MXVTbkpn0gFzQVVfeXFMUDJ0T0FHT2F1eFR6UW5DWUxlcVJJVXluSjZzUmhhajdPa0E4WDJPTFpIS1VFSHI2VElaV00wbnJPV0Q2S1dDbjVuaVRJZlVCWDhwb09Wc3NSWXUtNTdlTURvcWJzZ1VyUGV4TlMtZk0xeko5aw?oc=5",
+          "published_at": "2026-11-07T10:07:00+09:00"
+        },
+        {
+          "name": "국민일보",
+          "type": "news",
+          "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE1RbzJldlZzVFo1cEU2QUFNemdBZVdtVjJMTGg5a1lEZ0tzVkpXY0lQWFFPR1F3VmUyU3R3bTVSSFMxV1hTdGxaSEthLTlqbXpJcjE5WGRUUEI?oc=5",
+          "published_at": "2026-11-07T11:14:26+09:00"
+        }
+      ],
+      "id": "2026-11-08-traffic-0003"
+    },
+    {
+      "category": "disaster",
+      "severity": "warning",
+      "status": "resolved",
+      "title": "군산 오식도동 아파트 화재",
+      "summary": "전북 군산시 오식도동의 아파트 16층에서 화재가 발생했으나 약 30분 만에 진화되었습니다.",
+      "region": [
+        "전북"
+      ],
+      "started_at": "2026-11-07T11:52:00+09:00",
+      "ended_at": null,
+      "sources": [
+        {
+          "name": "매일안전신문",
+          "type": "news",
+          "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTFBfa0xaeDhEQ3JUaGM5b25TaXFYTGYzNHVxZENFbnMtcnoydVY1SnpDdzRIZjJ6enhXSE1WSlhkbnN5ODNxdExCYkpKT0tObmpSWjVWZERHNzjSAWhBVV95cUxORDZoWmh3UEtIREVuQ1czeXBSSUhaY0xyQWRXX2VPaUZyNTNlb0JVMG4zX29kV2xYb014TkNlVTFSYU1OdTB4ZGVlbTlNeGFMWGRGT2ZpaVFGYTdWRTdncDlyT0ZJOWMxSA?oc=5",
+          "published_at": "2026-11-07T11:52:00+09:00"
+        }
+      ],
+      "id": "2026-11-08-disaster-0004"
+    },
+    {
+      "category": "disaster",
+      "severity": "warning",
+      "status": "resolved",
+      "title": "천안 한국산업기술시험원 배터리 폭발 화재",
+      "summary": "충남 천안시 한국산업기술시험원 분소에서 배터리가 폭발하며 화재가 발생했습니다.",
+      "region": [
+        "충남"
+      ],
+      "started_at": "2026-11-07T14:47:53+09:00",
+      "ended_at": null,
+      "sources": [
+        {
+          "name": "금강일보",
+          "type": "news",
+          "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE9yLWdpR1MwcUhQWDZxN1d5aExodmwxblBTbFVPVXRzdTdfYWV3YWhKemMweUVtRDA1OW04NU9kMFF4d2ZtMUViMEhnSnZaazdhVWtiV2lVZ2JfWXcyRTVySWNaQTJyZzhIQ0E?oc=5",
+          "published_at": "2026-11-07T14:47:53+09:00"
+        }
+      ],
+      "id": "2026-11-08-disaster-0005"
+    },
+    {
+      "category": "traffic",
+      "severity": "warning",
+      "status": "resolved",
+      "title": "대구도시철도 3호선 고장으로 운행 지연",
+      "summary": "대구도시철도 3호선 열차 고장으로 운행에 차질이 빚어졌으나 약 30분 만에 정상화되었습니다.",
+      "region": [
+        "대구"
+      ],
+      "started_at": "2026-11-07T15:31:33+09:00",
+      "ended_at": null,
+      "sources": [
+        {
+          "name": "연합뉴스",
+          "type": "news",
+          "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFBHaDZNZ21Pd3pXNnBneEVHOXYybHVXQWVqNFhJTTN0TFA5TmZhbUtFUmFpYkZTUmdfNG5JZGVucVV5QjRQUWpwRGdRLTUtZ2RjQ0gySlYwRFNDSU1LQ0lMbdIBYEFVX3lxTFBHaDZNZ21Pd3pXNnBneEVHOXYybHVXQWVqNFhJTTN0TFA5TmZhbUtFUmFpYkZTUmdfNG5JZGVucVV5QjRQUWpwRGdRLTUtZ2RjQ0gySlYwRFNDSU1LQ0lMbQ?oc=5",
+          "published_at": "2026-11-07T15:31:33+09:00"
+        },
+        {
+          "name": "연합뉴스",
+          "type": "news",
+          "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1vNEhWVWs0RGtwdENNbDVPQTdvLWRhMW56ajUzSnhPUVMyT0pxX2lVclJ3dnlwX2p5T2k0MHFURDEzM2t2VGRIRzNPZW96N3RTNXpKVXNZSXVOcFnSAWBBVV95cUxNR0doWDlPT19xZzVUc3k5MXNsWkx5UDJZY0ZJTEVqUFdZLXBqQTJNNWFYLVBWdUg2QTdOdzNFUGxHSzZwZ2IzZzhjU0thbDZOVmJWMk9wVzg5RHFUQ2N5SDQ?oc=5",
+          "published_at": "2026-11-07T17:00:31+09:00"
+        }
+      ],
+      "id": "2026-11-08-traffic-0006"
+    },
+    {
+      "category": "disaster",
+      "severity": "info",
+      "status": "resolved",
+      "title": "전국 한파주의보 해제",
+      "summary": "입동 추위로 전국 곳곳에 내려졌던 한파주의보가 7일 오전 9시를 기해 모두 해제되었습니다.",
+      "region": [
+        "전국"
+      ],
+      "started_at": "2026-11-07T07:16:39+09:00",
+      "ended_at": null,
+      "sources": [
+        {
+          "name": "여성신문",
+          "type": "news",
+          "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE5aZVdyTGstemQ0UGI0d0xTN2pJUWQ2bW8xTlNuNFJRUlZieXRYOTMwbVN4SDdXa191aGpScmUwUElCbk9IMTFSeW1tRl9ZaHNwMUQ0LWFQeDhCSjM5a0VyaXQyVTdMalY3X2FrUHZJc9IBc0FVX3lxTE80U0ltc25zMXNTVjF5M0tvUVljT0hPMDFxZEVEMVI2YktVNmdWbFkza194RThqSzNWLU1kZVdmQnpQLWVBdjFiSTR2Mk1kZHJ3a2FiVU1nOVdhZTVCVmlHanNVU3VOQVJUT1NtWC14RTg2a1U?oc=5",
+          "published_at": "2026-11-07T07:16:39+09:00"
+        },
+        {
+          "name": "연합뉴스",
+          "type": "news",
+          "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFBYYkNEeExnbWNNdmczTjV0YUJmS1hTTkhKYXU4cVlkeWVJX2o2cThoUTEwaVRQVEp1dHg1UnQ4UU1RMjZQeDcyeEJ5UlFmeVcxSk1xQ2xjTlowd1BsbnRqc9IBYEFVX3lxTFBYYkNEeExnbWNNdmczTjV0YUJmS1hTTkhKYXU4cVlkeWVJX2o2cThoUTEwaVRQVEp1dHg1UnQ4UU1RMjZQeDcyeEJ5UlFmeVcxSk1xQ2xjTlowd1BsbnRqcw?oc=5",
+          "published_at": "2026-11-07T09:03:35+09:00"
+        },
+        {
+          "name": "연합뉴스",
+          "type": "news",
+          "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBYaVg4dXBuRWhyaHpEbXhsQ0lHMjJ3Nms3eFNVdGs4X3M0aGpCNDVlNnN4MEtzTGJJQWhDYjVyblJiMThSc3NvSTZSRUFPTW5MQUNxYU1YYkpUT1XSAWBBVV95cUxQeVZrbnk3NVBNb3Q2U1dmZ3BMRFkwS1N0enROZWQ0bko2WXFhMURSUHVlVy1jcm5kMTI3Mm1TS0dzVDdPV0JQeXV3NXUxZkFoZWNfNFRGS0I1Vm52TEFHc3M?oc=5",
+          "published_at": "2026-11-07T09:03:53+09:00"
+        },
+        {
+          "name": "연합뉴스",
+          "type": "news",
+          "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFBRYTQ1N3Q3TVpFUlhoSEVqdXZ0SkZzc2ZLdVpQS2RPX0huZ2ozbGlRZF9Kam5wZE5SUWhvSUhBZ2oteF9iQ0djMURPNWNTWGs4SWdtZEp4bzc3VVViczBTNdIBYEFVX3lxTFBRYTQ1N3Q3TVpFUlhoSEVqdXZ0SkZzc2ZLdVpQS2RPX0huZ2ozbGlRZF9Kam5wZE5SUWhvSUhBZ2oteF9iQ0djMURPNWNTWGs4SWdtZEp4bzc3VVViczBTNQ?oc=5",
+          "published_at": "2026-11-07T09:04:08+09:00"
+        },
+        {
+          "name": "연합뉴스",
+          "type": "news",
+          "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1LRVZqZk5ieWYxVDVmY2pXU0tEMUR6ZTQyTWwtWmxDWEZ4T0lxeUpYYmZaOGxzRWVjRFNJNGR4Y2JpUHBPX2hlMnB1bmtpcEV4STB5TUVqOXREcVnSAWBBVV95cUxPQzhZbk13MDhpMVJILVFDMDVBSC11YUI1anQtTGVDeDZSazBMb3ptaFh3UklLNVlRRS1tSUpMY0RyTjVZNGVSMHMzMTZqZVBMc0hKT1hNa2hvay1Ra21yMzM?oc=5",
+          "published_at": "2026-11-07T09:04:26+09:00"
+        },
+        {
+          "name": "연합뉴스",
+          "type": "news",
+          "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE9vTWQzeVV2a2ZVczBoSm5fQ3BrRURWQ1dmNzFpcjhyMDZITG5mVDhOWGJhTVRHM2dJZlh3XzVOYjBuV1NYYjM2ZHJoMWNWYXpvdHVVcktlbEJVZGJMQTdGUNIBYEFVX3lxTE9vTWQzeVV2a2ZVczBoSm5fQ3BrRURWQ1dmNzFpcjhyMDZITG5mVDhOWGJhTVRHM2dJZlh3XzVOYjBuV1NYYjM2ZHJoMWNWYXpvdHVVcktlbEJVZGJMQTdGUA?oc=5",
+          "published_at": "2026-11-07T09:04:51+09:00"
+        },
+        {
+          "name": "연합뉴스",
+          "type": "news",
+          "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1EVFRETDdfZ1IxOTJEenRSamh2c3drRVE2TWxWZ0JvM0REczNKZlRkZ3BYaGpLUkExNXVDeUJwUXprQVF2Nmhkak1uQndoc0NadEFLTnJ1alFDX1nSAWBBVV95cUxPc1FVZlgtQzNZNU1oU2JjMWRWa0ZGLU1IQ2NPSUFGUUV0LXZmZXdlcUh5YWZlV3dKdUN3a2dFcGlqWUZXTHJyM2xLTTNCbTN1TlpsZU82T1dVaVMtZlhtSVA?oc=5",
+          "published_at": "2026-11-07T09:05:06+09:00"
+        },
+        {
+          "name": "스포탈코리아",
+          "type": "news",
+          "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPdTRKNkJuYllKenVBVDdsZTBPaWp5dWJ1SVBFNXNvVFh2U3ZyaWVObmdCVXJKZzlwTnR5Y3lZSFdpanR1bi0tTmo3Ymk3bk95alVXVHhmLWpJVkpiYkltcjQ3a3QwdjNnVDlyV1pjZjRnSU1fTHB1QTNWRTBfNXNHbzVB?oc=5",
+          "published_at": "2026-11-07T09:12:21+09:00"
+        },
+        {
+          "name": "이데일리",
+          "type": "news",
+          "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQYlZsMDNRemRoTWtBRUZSRk5wcFBqMHZBeUdnSnFhNTBGQ1hZcFg5bWpQZW5TSS1aLW1KLXBKNEhJS01YemFDNjlGN2cwZ0VSZ0pDdEdQVVl6NHdOMHk0Nm9oeWY1bVJaSDBoRGdfdXhKeF9LZkFfMXpwMnJWQ0pYYw?oc=5",
+          "published_at": "2026-11-07T09:27:47+09:00"
+        },
+        {
+          "name": "뉴스1",
+          "type": "news",
+          "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1BcUM2ZjhhazlETUtOMmtPZjY3dGNPZE0wR0RrQ2ZrZ3NIX244QVJkSjk2MENOOWg5d29LMjJsNGJ2eGZxWkpVanNoVVZmTVhWYlM2S3ZGVEM2SVQ3N1g0?oc=5",
+          "published_at": "2026-11-07T09:44:26+09:00"
+        },
+        {
+          "name": "충청타임즈",
+          "type": "news",
+          "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE5qRHJtWEpTRHN0MTlFLXRUZU5sckJxRzVFUVdZeXg3Qm1aOV9HN0k4VnNrZnVxd0VSVzU4Sk5XVlJmc3NNSWlsMkp0REtaekdmc2lCTnBrMkxWa2RnQmN1Z1pOY2lkN0sz?oc=5",
+          "published_at": "2026-11-07T09:50:00+09:00"
+        }
+      ],
+      "id": "2026-11-08-disaster-0007"
+    },
+    {
+      "category": "disaster",
+      "severity": "info",
+      "status": "resolved",
+      "title": "동해·남해·제주 먼바다 풍랑주의보 해제",
+      "summary": "남해 동부, 동해 남부, 제주 남쪽 먼바다에 발령되었던 풍랑주의보가 순차적으로 해제되었습니다.",
+      "region": [],
+      "started_at": "2026-11-07T14:05:34+09:00",
+      "ended_at": null,
+      "sources": [
+        {
+          "name": "연합뉴스",
+          "type": "news",
+          "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFA5TWJtYjE1WUZXbWJsdGdxaWdjNk9tQ2N5NzZqbDc4MGkxUjZ4MVhyamhCYmJBeGNKUEV3cmtYNU85VWgyMXZrdkowOVpSMEJOMmlsWlJoaV9fSEg5Nk1RWNIBYEFVX3lxTFA5TWJtYjE1WUZXbWJsdGdxaWdjNk9tQ2N5NzZqbDc4MGkxUjZ4MVhyamhCYmJBeGNKUEV3cmtYNU85VWgyMXZrdkowOVpSMEJOMmlsWlJoaV9fSEg5Nk1RWA?oc=5",
+          "published_at": "2026-11-07T14:05:34+09:00"
+        },
+        {
+          "name": "연합뉴스",
+          "type": "news",
+          "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFB1aGhzaEp2VnlJTnNQYUxldzhvMFVrSDV0SnVJZEV1em1GeUNhQ3JydVpjTDRmVFRITjNDZmUxazVzQjMzTHo0LVc1XzFGZlh6c1ZBc2tWWl84WGJ0ODNlQdIBYEFVX3lxTFB1aGhzaEp2VnlJTnNQYUxldzhvMFVrSDV0SnVJZEV1em1GeUNhQ3JydVpjTDRmVFRITjNDZmUxazVzQjMzTHo0LVc1XzFGZlh6c1ZBc2tWWl84WGJ0ODNlQQ?oc=5",
+          "published_at": "2026-11-07T14:06:19+09:00"
+        },
+        {
+          "name": "연합뉴스",
+          "type": "news",
+          "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE45c09OOFE3TXJ2S0hFZ1pScy1IR2NKbngwQ0l2VXNSMm40ZnZfYTVVVE4zbmhwVEkwOWxhNjg3VnAtdWFwQUxEVHQ5YWtwTFI2Y2RVd1VEcy1JdDVDTXpPLdIBYEFVX3lxTE45c09OOFE3TXJ2S0hFZ1pScy1IR2NKbngwQ0l2VXNSMm40ZnZfYTVVVE4zbmhwVEkwOWxhNjg3VnAtdWFwQUxEVHQ5YWtwTFI2Y2RVd1VEcy1JdDVDTXpPLQ?oc=5",
+          "published_at": "2026-11-07T18:01:50+09:00"
+        }
+      ],
+      "id": "2026-11-08-disaster-0008"
+    }
+  ]
+}
