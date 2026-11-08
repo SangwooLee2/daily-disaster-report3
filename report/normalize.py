@@ -45,7 +45,8 @@ def normalize(raw_events: list, report_date: date) -> tuple[list, dict]:
         if not isinstance(raw, dict) or raw.get("category") not in CATEGORIES or not raw.get("title"):
             dropped["invalid"] += 1
             continue
-        sources = [s for s in raw.get("sources") or [] if s.get("url")]
+        # http(s) 링크만 허용한다 (javascript: 등 악성 링크 차단)
+        sources = [s for s in raw.get("sources") or [] if str(s.get("url", "")).startswith(("https://", "http://"))]
         if not sources:  # 환각 방지: 근거 URL 없는 항목은 게시하지 않는다
             dropped["no_source"] += 1
             continue

@@ -39,7 +39,15 @@ jobs:
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
-        run: python main.py collect ${{ inputs.date && format('--date {0}', inputs.date) || '' }}
+          REPORT_DATE: ${{ inputs.date }}  # 입력값을 명령어에 직접 넣지 않는다 (스크립트 주입 방지)
+        run: |
+          if [ -z "$REPORT_DATE" ]; then
+            python main.py collect
+          elif [[ "$REPORT_DATE" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]]; then
+            python main.py collect --date "$REPORT_DATE"
+          else
+            echo "날짜 형식 오류: YYYY-MM-DD로 입력하세요" && exit 1
+          fi
 
       - name: 수집 결과 저장 (data/)
         run: |
