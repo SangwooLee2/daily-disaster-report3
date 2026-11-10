@@ -16,7 +16,10 @@ from email.utils import parsedate_to_datetime
 from google import genai
 from google.genai import types
 
-from .config import CATEGORIES, GEMINI_MODEL, KST, REGIONS, report_window
+from .config import (
+    CATEGORIES, GEMINI_DEADLINE_SEC, GEMINI_FALLBACK_MODELS, GEMINI_MODEL, GEMINI_ROUNDS, KST, REGIONS,
+    report_window,
+)
 
 RSS_URL = "https://news.google.com/rss/search"
 MAX_ARTICLES = 250  # Gemini에 넘길 최대 기사 수
@@ -136,23 +139,49 @@ def _extract_json(text: str) -> list:
     return json.loads(text[start : end + 1])
 
 
-def _ask_gemini(prompt: str, retries: int = 3) -> str:
+def _ask_gemini(prompt: str) -> tuple[str, str, list[str]]:
+    """Gemini를 호출한다. 서버 혼잡(5xx)·한도(429)면 예비 모델로 넘어가며 재시도한다.
+
+    SDK 자체 재시도는 끄고 여기서만 재시도한다. 전체 대기 시간은 GEMINI_DEADLINE_SEC 이내.
+    돌려주는 값: (응답 본문, 성공한 모델, 실패 기록)
+    """
     api_key = os.environ.get("GEMINI_API_KEY")
     if not api_key:
         raise KeyError("GEMINI_API_KEY")
-    client = genai.Client(api_key=api_key)
-    for attempt in range(retries):
-        try:
-            response = client.models.generate_content(
-                model=GEMINI_MODEL,
-                contents=prompt,
-                config=types.GenerateContentConfig(temperature=0.2, response_mime_type="application/json"),
-            )
-            return response.text or ""
-        except genai.errors.ServerError:  # 503 등 일시적 과부하는 잠시 후 재시도
-            if attempt == retries - 1:
-                raise
-            time.sleep(20 * (attempt + 1))
+    client = genai.Client(
+        api_key=api_key,
+        http_options=types.HttpOptions(timeout=180_000, retry_options=types.HttpRetryOptions(attempts=1)),
+    )
+    models = list(dict.fromkeys([GEMINI_MODEL, *GEMINI_FALLBACK_MODELS]))
+    deadline = time.monotonic() + GEMINI_DEADLINE_SEC
+    failures: list[str] = []
+    for round_no in range(1, GEMINI_ROUNDS + 1):
+        for model in list(models):
+            if time.monotonic() > deadline:
+                raise TimeoutError("제한 시간 초과 · " + " / ".join(failures[-3:]))
+            try:
+                response = client.models.generate_content(
+                    model=model,
+                    contents=prompt,
+                    config=types.GenerateContentConfig(temperature=0.2, response_mime_type="application/json"),
+                )
+                return response.text or "", model, failures
+            except genai.errors.ServerError as e:  # 503 등 일시적 혼잡: 다음 모델로
+                failures.append(f"{model} {e.code}")
+            except genai.errors.ClientError as e:
+                if e.code == 429:  # 모델별 한도 초과: 다음 모델로
+                    failures.append(f"{model} 429")
+                elif e.code == 404:  # 사용할 수 없는 모델: 목록에서 빼고 다음 모델로
+                    failures.append(f"{model} 404")
+                    models.remove(model)
+                else:  # 키 오류(400·403) 등은 재시도해도 소용없다
+                    raise
+        if not models:
+            break
+        wait = min(30 * round_no, max(0, deadline - time.monotonic()))
+        if round_no < GEMINI_ROUNDS and wait > 0:
+            time.sleep(wait)
+    raise RuntimeError("모든 모델이 응답하지 않음 · " + " / ".join(failures[-4:]))
 
 
 def _attach_sources(events: list, articles: list) -> None:
@@ -182,13 +211,14 @@ def collect(report_date: date) -> dict:
             f"{i} | {a['category']} | {a['published_at']:%m-%d %H:%M} | {a['press']} | {a['title']}"
             for i, a in enumerate(articles)
         )
-        text = _ask_gemini(PROMPT.format(
+        text, model, failures = _ask_gemini(PROMPT.format(
             start=f"{start:%Y-%m-%d %H:%M}", end=f"{end:%Y-%m-%d %H:%M}",
             regions=", ".join(REGIONS), articles=lines,
         ))
         events = _extract_json(text)
         _attach_sources(events, articles)
-        gemini.update(ok=True, message=f"기사 {len(articles)}건 → 사건 {len(events)}건")
+        note = f" · 재시도 {len(failures)}회" if failures else ""
+        gemini.update(ok=True, message=f"{model}: 기사 {len(articles)}건 → 사건 {len(events)}건{note}")
         return {"events": events, "sources_status": statuses}
     except KeyError:
         gemini["message"] = "GEMINI_API_KEY가 설정되지 않았습니다 (.env 또는 환경 변수)"

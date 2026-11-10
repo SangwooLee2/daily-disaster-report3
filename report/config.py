@@ -31,6 +31,14 @@ load_dotenv(ROOT.parent / ".env")  # 없는 값은 상위 폴더 .env에서
 PUBLISH_TIME = time(7, 0)  # 매일 07:00 KST 발행
 
 GEMINI_MODEL = os.environ.get("GEMINI_MODEL") or "gemini-3.8-flash"
+# 기본 모델이 혼잡(503)하거나 한도(429)에 걸리면 차례로 시도할 예비 모델 (쉼표로 구분)
+GEMINI_FALLBACK_MODELS = [
+    m.strip()
+    for m in (os.environ.get("GEMINI_FALLBACK_MODELS") or "gemini-3.5-flash,gemini-3.1-flash-lite").split(",")
+    if m.strip()
+]
+GEMINI_ROUNDS = 4  # 모델 목록을 최대 몇 바퀴 돌지 (바퀴 사이 30·60·90초 대기)
+GEMINI_DEADLINE_SEC = 8 * 60  # Gemini 단계 전체 제한 시간
 
 CATEGORIES = {
     "disaster": "재난·재해",

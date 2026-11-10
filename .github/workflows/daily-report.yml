@@ -35,7 +35,7 @@ jobs:
       - run: pip install -r requirements.txt
 
       - name: 수집 (Google 뉴스 RSS + Gemini 1회 호출)
-        timeout-minutes: 10
+        timeout-minutes: 15  # RSS 1분 + Gemini 최대 8분(재시도 포함) + 여유
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
